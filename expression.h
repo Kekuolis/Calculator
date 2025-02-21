@@ -12,5 +12,3 @@ public:
 };
 
 INode *buildTree(std::string &expr, size_t &pos);
-int findTopLevelOperator(const std::string &expr,
-                         const std::unordered_map<char, int> &precedence);

@@ -2,11 +2,17 @@
 #include "expression.h"
 #include "variable.h"
 #include <cstddef>
+#include <type_traits>
 #include <vector>
+
 // 4 + 5 + 6 * 9 + (9 + 8 / 7 * (2 * (3 +2)))
-int main() {
+int main(int argc, char *argv[]) {
   std::string expression, processed;
-  std::getline(std::cin, expression);
+
+  if (argc == 1)
+    std::getline(std::cin, expression);
+  else
+    expression = argv[1];
   std::copy_if(expression.begin(), expression.end(), std::back_inserter(processed), [](char c) { return !isspace(c); });
   fill *replaceVariables = new fill;
   replaceVariables->setter(processed);
