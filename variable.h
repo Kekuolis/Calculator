@@ -12,14 +12,15 @@ private:
                            return !std::isdigit(c);
                          }) == s.end();
   }
+
 public:
   void setter(std::string exprSet) { expr = exprSet; }
 
   std::string replace() {
     std::string tmp;
     for (int i = 0; i < expr.length(); i++) {
-      if (int(expr[i] > 64 && int(expr[i]) < 91) ||
-          int(expr[i] > 97 && int(expr[i]) < 122)) {
+      if ((int(expr[i]) > 64 && int(expr[i]) < 91) ||
+          (int(expr[i] > 96 && int(expr[i]) < 122))) {
         std::cout << "Please fill in the number " << expr[i] << " = ";
         std::cin >> tmp;
         while (!is_number(tmp)) {
@@ -27,7 +28,6 @@ public:
           std::cin >> tmp;
         }
         expr.replace(i, 1, tmp);
-        // Adjust index if the inserted string has more than one character
         i += tmp.length() - 1;
       }
     }

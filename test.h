@@ -3,6 +3,6 @@
 
 #include <string>
 
-double evaluateExpression(const std::string& input);
+double evaluateExpression(const std::string &input);
 
 #endif

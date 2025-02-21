@@ -1,9 +1,9 @@
 #pragma once
 #include "INode.h"
-#include <string>
-#include <vector>
-#include <unordered_map>
 #include <stack>
+#include <string>
+#include <unordered_map>
+#include <vector>
 
 class substring {
 public:

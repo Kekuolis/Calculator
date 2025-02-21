@@ -13,7 +13,10 @@ int main(int argc, char *argv[]) {
     std::getline(std::cin, expression);
   else
     expression = argv[1];
-  std::copy_if(expression.begin(), expression.end(), std::back_inserter(processed), [](char c) { return !isspace(c); });
+
+  std::copy_if(expression.begin(), expression.end(),
+               std::back_inserter(processed),
+               [](char c) { return !isspace(c); });
   fill *replaceVariables = new fill;
   replaceVariables->setter(processed);
   processed = replaceVariables->replace();
@@ -22,7 +25,7 @@ int main(int argc, char *argv[]) {
   INode *tree = buildTree(processed, pos);
 
   tree->print();
-  std::cout<<std::endl;
+  std::cout << std::endl;
   std::cout << "Result: " << tree->calc() << std::endl;
   delete tree;
 }
